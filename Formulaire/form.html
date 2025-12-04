@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="theme.css">
+    <title>Le formulaire de la gloire</title>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="form-container">
+        <div class="card">
+            <h2>Un soucis</h2>
+            <p>Informatique ? Reconditionnement ? Contactez-nous</p>
+            
+            <form id="ReportForm">
+                <div class="form-group">
+                    <label for="nom">Nom <span class="required">*</span></label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sujet">Sujet <span class="required">*</span></label>
+                    <input type="text" id="sujet" name="sujet" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup de confirmation -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <div class="checkmark"></div>
+            <h3>Message Envoyé !</h3>
+            <p>Merci de nous avoir Reportés. Nous vous répondrons bientôt.</p>
+            <button class="popup-close-btn" onclick="closePopup()">Fermer</button>
+        </div>
+    </div>
+
+    <script src="/nav/navbar-loader.js"></script>
+    <script src="/form.js"></script>
+
+</body>
+</html>
