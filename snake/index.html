@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocut V2 | System Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Landing Interface -->
+    <main id="landing-content" class="landing-container">
+        <div class="scanline"></div>
+        <header>
+            <span class="status-blink">●</span> SYSTEM_STATUS: STABLE
+        </header>
+        
+        <div class="hero-content">
+            <h1 class="glitch" data-text="AUTOCUT V2">AUTOCUT V2</h1>
+            <h2 class="typing-effect">NEXT GEN EDITING_</h2>
+            <p class="subtitle">System Online... Waiting for input.</p>
+        </div>
+
+        <footer>
+            <p>© STARK INDUSTRIES - AUTOCUT DIVISION</p>
+        </footer>
+    </main>
+
+    <!-- Game Interface (Hidden functionality) -->
+    <div id="game-overlay" class="hidden">
+        <div class="crt-effect"></div>
+        <div class="game-ui">
+            <div class="hud-panel">SCORE: <span id="score">0</span></div>
+            <div id="game-message" class="hidden">GAME OVER<br><span class="blink">PRESS ENTER TO RESTART</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
