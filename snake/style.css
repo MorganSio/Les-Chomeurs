@@ -1,0 +1,189 @@
+:root {
+    --bg-color: #050505;
+    --neon-green: #0f0;
+    --dark-green: #003300;
+    --alert-red: #ff3e3e;
+    --font-main: 'Share Tech Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--neon-green);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- LANDING PAGE STYLES --- */
+.landing-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.status-blink {
+    animation: blink 2s infinite;
+}
+
+h1.glitch {
+    font-size: 5rem;
+    position: relative;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+h1.glitch::before, h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+h1.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+h1.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+.subtitle {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #333;
+}
+
+/* --- GAME STYLES (Cyberpunk Terminal) --- */
+#game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-color);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-green), inset 0 0 20px var(--neon-green);
+    background: rgba(0, 20, 0, 0.9);
+}
+
+.game-ui {
+    position: absolute;
+    top: 20px;
+    width: 800px; /* Match initial canvas width logic */
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 110;
+}
+
+.hud-panel {
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+#game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 200px); /* Offset below game */
+    text-align: center;
+    font-size: 2rem;
+    color: var(--alert-red);
+    text-shadow: 0 0 10px var(--alert-red);
+}
+
+.crt-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 105;
+}
+
+/* --- UTILITIES --- */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: flex !important;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes glitch-anim-1 {
+    0% { clip: rect(20px, 9999px, 10px, 0); }
+    100% { clip: rect(90px, 9999px, 100px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(120px, 9999px, 80px, 0); }
+    100% { clip: rect(10px, 9999px, 140px, 0); }
+}
