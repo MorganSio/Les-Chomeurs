@@ -1,0 +1,638 @@
+.form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .card p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            animation: popupZoom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popupZoom {
+            from {
+                opacity: 0;
+                transform: scale(0.3) rotateZ(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotateZ(0deg);
+            }
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: checkmarkPulse 0.6s ease-out 0.2s backwards;
+        }
+
+        @keyframes checkmarkPulse {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark::after {
+            content: '✓';
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            animation: checkmarkDraw 0.4s ease-out 0.4s backwards;
+        }
+
+        @keyframes checkmarkDraw {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .popup-content p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .popup-close-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .popup-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Fun animations */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+        }
+
+        @keyframes spin-confetti {
+            0% {
+                transform: rotate(0deg) translateY(-50px);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(360deg) translateY(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            font-size: 30px;
+            animation: spin-confetti 3s ease-in forwards;
+        }
+
+        button:hover {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .card h2 {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .popup-content {
+            animation: popupZoom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), pulse-glow 2s ease-in-out 0.5s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            animation: shake 0.3s ease-in-out;
+        }
+
+        /* Emoji fun */
+        .card::before {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        textarea::placeholder,
+        input::placeholder {
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        textarea:focus::placeholder,
+        input:focus::placeholder {
+            opacity: 0.3;
+        }
+
+        /* ============ EXTRÊMEMENT ORIGINAL ============ */
+
+        /* Holographic animated background */
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Card 3D transformation */
+        .form-container {
+            perspective: 1000px;
+        }
+
+        .card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            background-image: 
+                linear-gradient(white, white),
+                linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+
+        .form-container:hover .card {
+            transform: rotateX(5deg) rotateY(5deg);
+        }
+
+        /* Ultra glow effect */
+        .card {
+            box-shadow: 
+                0 0 60px rgba(102, 126, 234, 0.6),
+                0 0 100px rgba(118, 75, 162, 0.4),
+                inset 0 0 60px rgba(255, 255, 255, 0.2);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+            border-radius: 15px;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Inputs avec gradient border */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(245,245,255,0.9));
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #667eea;
+            box-shadow: 
+                0 0 20px rgba(102, 126, 234, 0.6),
+                inset 0 0 20px rgba(102, 126, 234, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* Button avec liquid ripple */
+        button {
+            position: relative;
+            overflow: hidden;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 500px;
+            height: 500px;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(102, 126, 234, 0.6),
+                0 0 40px rgba(118, 75, 162, 0.4);
+            letter-spacing: 4px;
+        }
+
+        /* Titre avec gradient animé */
+        .card h2 {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 4s ease infinite, float 3s ease-in-out infinite;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Sparkles autour du titre */
+        .card h2::before,
+        .card h2::after {
+            content: '✨';
+            display: inline-block;
+            animation: sparkle 2s ease-in-out infinite;
+            margin: 0 10px;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Particules volantes */
+        .floating-particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 40px;
+            animation: float-particle 6s ease-in forwards;
+            z-index: 1;
+        }
+
+        @keyframes float-particle {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) translateX(100px) scale(0) rotate(360deg);
+            }
+        }
+
+        /* Popup extrêmement original */
+        .popup-overlay {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.3), transparent 50%),
+                rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,255,0.95));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(102, 126, 234, 0.4),
+                inset 0 0 60px rgba(255,255,255,0.3);
+            animation: popupZoom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), popupPulse 2s ease-in-out 0.5s;
+        }
+
+        @keyframes popupPulse {
+            0%, 100% {
+                box-shadow: 
+                    0 30px 80px rgba(0, 0, 0, 0.3),
+                    0 0 60px rgba(102, 126, 234, 0.4),
+                    inset 0 0 60px rgba(255,255,255,0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 30px 80px rgba(0, 0, 0, 0.3),
+                    0 0 100px rgba(102, 126, 234, 0.8),
+                    inset 0 0 80px rgba(255,255,255,0.5);
+            }
+        }
+
+        /* Checkmark avec spin */
+        .checkmark {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            box-shadow: 
+                0 0 40px rgba(102, 126, 234, 0.8),
+                inset 0 0 40px rgba(255,255,255,0.2);
+            animation: checkmarkPulse 0.6s ease-out 0.2s backwards, spinCheck 2s linear infinite;
+        }
+
+        @keyframes spinCheck {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .checkmark::after {
+            font-size: 60px;
+            animation: checkmarkDraw 0.4s ease-out 0.4s backwards, bounceCheck 0.6s ease-out 0.4s;
+        }
+
+        @keyframes bounceCheck {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Popup titre avec texte animé */
+        .popup-content h3 {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 28px;
+            animation: textGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: none; }
+            50% { 
+                text-shadow: 0 0 20px rgba(102, 126, 234, 0.5); 
+            }
+        }
+
+        /* Bouton fermer extreme */
+        .popup-close-btn {
+            position: relative;
+            border-radius: 50px;
+            padding: 12px 40px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            overflow: hidden;
+        }
+
+        .popup-close-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .popup-close-btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
