@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philo-Blabla, le Chat-rlatan Numérique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <div id="avatar">🧐</div>
+        <h1>Philo-Blabla</h1>
+        <p>Le seul chatbot garanti 100% inutile. Philosophe et amateur de cornichons.</p>
+    </header>
+
+    <main id="chat-container">
+        <div class="message bot">
+            <p>Bienvenue ! Je suis là pour discuter avec toi </p>
+        </div>
+    </main>
+
+    <footer>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Tapez votre message..." required>
+            <button type="submit">Méditer</button>
+        </form>
+    </footer>
+</div>
+
+<!-- Modal pour la clé API -->
+<div id="apiKeyModal" class="modal">
+    <div class="modal-content">
+        <h2>Entrez votre clé API Gémini</h2>
+        <input type="text" id="api-key-input" placeholder="Votre clé API Gemini">
+        <button id="save-api-key">Valider</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
