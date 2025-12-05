@@ -1,7 +1,7 @@
 // scripts/navbar-loader.js
 document.addEventListener('DOMContentLoaded', function() {
     // Charger la navbar (chemin absolu depuis la racine pour éviter les requêtes comme /snake/nav/...)
-    fetch('/nav/navbar.html')
+    fetch('nav/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
