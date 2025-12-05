@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/formulaire/form.css">
     <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../nav.css">
+
     <title>Le formulaire de la gloire</title>
 </head>
+
 <body>
-    <div id="navbar-container"></div>
+    <!-- navbar.html -->
+    <nav class="navbar" id="nird-navbar">
+        <div class="navbar-container navbar-content">
+            <div class="navbar-brand">
+                <span class="logo">🛡️
+                </span>
+                <span class="brand-name">Les chômeurs </span>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="/" class="nav-link active">Accueil</a></li>
+                <li><a href="../snake/index.html" class="nav-link">Snake</a></li>
+                <li><a href="../CCI/index.html" class="nav-link">Défi CCI</a></li>
+                <li><a href="../ChatBot/index.html" class="nav-link">Défi Chat'bruti</a></li>
+                <li><a href="../ergonomie/index.html" class="nav-link">Défi Ergonomie</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="form-container">
         <div class="card">
             <h2>Un soucis</h2>
             <p>Informatique ? Reconditionnement ? Contactez-nous</p>
-            
+
             <form id="ReportForm">
                 <div class="form-group">
                     <label for="nom">Nom <span class="required">*</span></label>
@@ -50,8 +70,8 @@
         </div>
     </div>
 
-    <script src="../navbar-loader.js"></script>
     <script src="./form.js"></script>
 
 </body>
+
 </html>

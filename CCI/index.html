@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../nav.css">
+
     <title>ESCAPE CAMPUS - Protocol Friday</title>
 </head>
-<body>
-    <div id="header"></div>
 
+<body>
+    <!-- navbar.html -->
+    <nav class="navbar" id="nird-navbar">
+        <div class="navbar-container navbar-content">
+            <div class="navbar-brand">
+                <span class="logo">🛡️
+                </span>
+                <span class="brand-name">Les chômeurs </span>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="/" class="nav-link active">Accueil</a></li>
+                <li><a href="../snake/index.html" class="nav-link">Snake</a></li>
+                <li><a href="../CCI/index.html" class="nav-link">Défi CCI</a></li>
+                <li><a href="../ChatBot/index.html" class="nav-link">Défi Chat'bruti</a></li>
+                <li><a href="../ergonomie/index.html" class="nav-link">Défi Ergonomie</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <style>
         /* --- CSS : THEME HACKER / TERMINAL --- */
         body {
             background-color: #0d0d0d;
-            color: #00ff41; /* Vert terminal */
+            color: #00ff41;
+            /* Vert terminal */
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify_content: center;
@@ -55,12 +75,14 @@
         }
 
         .section {
-            display: none; /* Caché par défaut */
+            display: none;
+            /* Caché par défaut */
             animation: fadeIn 0.5s ease-in-out;
         }
 
         .active {
-            display: block; /* Affiché si actif */
+            display: block;
+            /* Affiché si actif */
         }
 
         .console-log {
@@ -118,13 +140,23 @@
         }
 
         @keyframes blink {
-            50% { opacity: 0.5; }
+            50% {
+                opacity: 0.5;
+            }
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .scan-line {
             width: 100%;
             height: 2px;
@@ -137,8 +169,13 @@
         }
 
         @keyframes scan {
-            0% { top: 0%; }
-            100% { top: 100%; }
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
         }
 
         /* Effet de succès global */
@@ -146,16 +183,16 @@
             text-align: center;
             color: #00ff41;
         }
+
         .fail-msg {
             color: #ff3333;
         }
-
     </style>
 
     <div class="container">
         <div class="scan-line"></div>
         <h1>ESCAPE CAMPUS <span style="font-size:0.5em">v1.0</span></h1>
-        
+
         <div class="hud">
             <span id="current-task">Séquence : 1/3</span>
             <span id="timer" class="timer">30:00</span>
@@ -171,11 +208,13 @@
         <div id="step-1" class="section active">
             <h3>MISSION 1 : LA DIVERSION</h3>
             <p>Le directeur surveille son écran. Il faut le faire sortir du bureau.</p>
-            
+
             <button class="choice-btn" onclick="checkDistraction('alarme')">[A] Déclencher l'alarme incendie</button>
-            <button class="choice-btn" onclick="checkDistraction('kinder')">[B] Mettre des Kinder Bueno dans le foyer</button>
-            <button class="choice-btn" onclick="checkDistraction('danser')">[C] Faire la Macarena devant la fenêtre</button>
-            
+            <button class="choice-btn" onclick="checkDistraction('kinder')">[B] Mettre des Kinder Bueno dans le
+                foyer</button>
+            <button class="choice-btn" onclick="checkDistraction('danser')">[C] Faire la Macarena devant la
+                fenêtre</button>
+
             <button class="secondary" onclick="showHint(1)">Demander un indice (Friday)</button>
         </div>
 
@@ -187,7 +226,7 @@
                 <code>INDICE : "Le nom de ton école + l'année actuelle"</code>
                 <br>Exemple format : ECOLE2024
             </div>
-            
+
             <input type="text" id="wifi-input" placeholder="Entrez le mot de passe..." autocomplete="off">
             <button onclick="checkWifi()">CONNECTER</button>
             <button class="secondary" onclick="showHint(2)">Indice</button>
@@ -198,7 +237,7 @@
             <h3>MISSION 3 : PIRATAGE CAMÉRA</h3>
             <p>Accès Wi-Fi établi. Caméra "SECURE_CAM_01" détectée.</p>
             <p>Statut : <span style="color:red">ENREGISTREMENT</span></p>
-            
+
             <div id="hack-progress" style="width: 0%; height: 10px; background: #00ff41; transition: width 2s;"></div>
             <br>
             <button onclick="disableCamera()">LANCER LE SCRIPT DE DÉSACTIVATION</button>
@@ -216,7 +255,7 @@
 
     </div>
 
-    <script src="../nav/navbar-loader.js"></script> 
+    <script src="../nav/navbar-loader.js"></script>
 
     <script>
         // Variables globales
@@ -225,7 +264,7 @@
         const consoleOutput = document.getElementById('console-output');
 
         // Démarrage du timer au chargement
-        window.onload = function() {
+        window.onload = function () {
             startTimer();
             typeWriter("Bienvenue Monsieur. Le système de sécurité est actif. Choisissez une stratégie.");
         };
@@ -243,8 +282,8 @@
                     timeLeft--;
                     let minutes = Math.floor(timeLeft / 60);
                     let seconds = timeLeft % 60;
-                    timerElement.innerText = 
-                        (minutes < 10 ? "0" + minutes : minutes) + ":" + 
+                    timerElement.innerText =
+                        (minutes < 10 ? "0" + minutes : minutes) + ":" +
                         (seconds < 10 ? "0" + seconds : seconds);
                 }
             }, 1000);
@@ -294,7 +333,7 @@
             typeWriter("Injection du virus en cours...");
             const progressBar = document.getElementById('hack-progress');
             progressBar.style.width = "100%";
-            
+
             setTimeout(() => {
                 typeWriter("Piratage réussi. Caméra Offline.");
                 setTimeout(() => nextStage('step-3', 'step-final', 'MISSION ACCOMPLIE'), 1500);
@@ -311,4 +350,5 @@
         }
     </script>
 </body>
+
 </html>
