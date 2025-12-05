@@ -1,68 +1,33 @@
-// scripts/navbar-loader.js
-document.addEventListener('DOMContentLoaded', function() {
-    
-    const depth = window.location.pathname.split('/').length - 2; 
-    let pathPrefix = './';
-    const isGithubPages = window.location.hostname.includes('github.io');
-    if (isGithubPages) {
-        pathPrefix = './'; 
-        
-        if (window.location.pathname.split('/').length > 3) {
-             pathPrefix = '../';
-        }
-    } else {
-        if (window.location.pathname.split('/').length > 2) { 
-             pathPrefix = '../';
-        }
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Détermine si on est dans un sous-dossier pour ajuster le chemin
+    const isGithub = location.hostname.includes('github.io');
+    const depth = location.pathname.split('/').length - (isGithub ? 3 : 2);
+    const prefix = depth > 0 ? '../' : './';
 
-    const navbarUrl = pathPrefix + 'nav/navbar.html';
-    console.log('Friday: Chargement de la navbar depuis :', navbarUrl);
-
-    fetch(navbarUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status} sur ${navbarUrl}`);
-            }
-            return response.text();
-        })
-        .then(data => {
+    fetch(`${prefix}nav/navbar.html`)
+        .then(res => res.text())
+        .then(html => {
             const container = document.getElementById('navbar-container');
-            if (container) {
-                container.innerHTML = data;
-                initMobileToggle();
-                highlightActiveLink();
-            } else {
-                console.error("Friday: Impossible de trouver <div id='navbar-container'></div>");
-            }
+            if (!container) return;
+            
+            container.innerHTML = html;
+
+            // 2. Gestion du Menu Mobile
+            const toggle = document.getElementById('navbarToggle');
+            const menu = document.getElementById('navbarMenu');
+            
+            toggle?.addEventListener('click', () => {
+                menu.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+
+            // 3. Gestion du lien Actif
+            const currentFile = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href').endsWith(currentFile)) {
+                    link.classList.add('active');
+                }
+            });
         })
-        .catch(error => {
-            console.error('Friday: Erreur chargement navbar:', error);
-        });
+        .catch(err => console.error("Friday: Erreur navbar", err));
 });
-
-function initMobileToggle() {
-    const toggle = document.getElementById('navbarToggle');
-    const menu = document.getElementById('navbarMenu');
-
-    if (toggle && menu) {
-        toggle.addEventListener('click', function() {
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-        });
-    }
-}
-
-function highlightActiveLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const links = document.querySelectorAll('.nav-link');
-
-    links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && (href === currentPage || href.endsWith(currentPage))) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
