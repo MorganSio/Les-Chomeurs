@@ -1,4 +1,4 @@
- const form = document.getElementById('ReportForm');
+const form = document.getElementById('ReportForm');
 const popupOverlay = document.getElementById('popupOverlay');
 
 // Emojis extrêmement amusants
