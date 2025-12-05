@@ -1,90 +1,228 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIRD - Le Village Numérique Résistant</title>
-    <link rel="stylesheet" href="theme.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'">
+    <link rel="stylesheet" href="style.css">
+    <title>Village NIRD - Résistance Numérique Éducative</title>
 </head>
 <body>
     <div id="header"></div>
-
     <!-- Hero Section -->
     <section class="hero">
+        <h1>🛡️ Bienvenue au Village NIRD 🛡️</h1>
+        <p class="subtitle">Résistons ensemble à l'empire numérique !</p>
+        <p style="color: white; max-width: 600px; margin-bottom: 2rem; font-size: 1.1rem;">
+            Comme le village d'Astérix résiste à l'Empire romain, découvre comment ton établissement peut devenir autonome face aux Big Tech !
+        </p>
+        <button class="cta-button" onclick="startJourney()">🚀 Commencer l'aventure</button>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz-section" class="quiz-section hidden">
         <div class="container">
-            <h1 class="hero-title">🛡️ Le Village Numérique Résistant</h1>
-            <p class="hero-subtitle">
-                Comme Astérix face à l'Empire Romain, résistons ensemble à l'Empire des Big Tech !
+            <h2 class="section-title">🎮 Quiz : Es-tu prêt(e) pour NIRD ?</h2>
+            <div class="quiz-card">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+                <div id="quiz-content"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <h2 class="section-title">📚 Découvre NIRD</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="emoji">🎥</div>
+                    <h3>Vidéos explicatives</h3>
+                    <p>Regarde comment Linux rend l'informatique accessible à tous au lycée Carnot</p>
+                    <a href="https://tube-numerique-educatif.apps.education.fr/w/3LXem3XK4asbwZa5R1qGkW" target="_blank" style="color: #667eea; font-weight: bold;">▶️ Voir la vidéo</a>
+                </div>
+                <div class="resource-card">
+                    <div class="emoji">🌐</div>
+                    <h3>Site officiel NIRD</h3>
+                    <p>Explore toutes les ressources et guides pour transformer ton établissement</p>
+                    <a href="https://nird.forge.apps.education.fr/" target="_blank" style="color: #667eea; font-weight: bold;">🔗 Visiter</a>
+                </div>
+                <div class="resource-card">
+                    <div class="emoji">🎙️</div>
+                    <h3>Reportages</h3>
+                    <p>Écoute des témoignages d'établissements qui ont franchi le pas</p>
+                    <a href="https://www.radiofrance.fr/franceinter/podcasts/le-grand-reportage-de-france-inter/le-grand-reportage-du-mardi-14-octobre-2025-4136495" target="_blank" style="color: #667eea; font-weight: bold;">🎧 Écouter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions-section" class="quiz-section hidden">
+        <div class="container">
+            <h2 class="section-title">💡 Les Solutions NIRD</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #667eea;">
+                Découvre les alternatives concrètes aux problèmes soulevés dans le quiz
             </p>
-            <div class="hero-cta">
-                <button class="btn btn-primary">Rejoindre la résistance</button>
-                <button class="btn btn-secondary">Découvrir NIRD</button>
+            
+            <div class="quiz-card" style="margin-bottom: 2rem;">
+                <div class="emoji" style="font-size: 4rem; text-align: center;">🔄</div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Problème : Obsolescence programmée</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                    Quand Windows 10 ne sera plus supporté, des milliers d'ordinateurs fonctionnels risquent la poubelle...
+                </p>
+                <div style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">✅ Solution NIRD : Linux</h4>
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li><strong>🐧 Installer Linux</strong> : Distributions légères comme Ubuntu, Linux Mint ou Debian donnent une seconde vie aux vieux PC</li>
+                        <li><strong>♻️ Réduire les déchets</strong> : Un PC de 10 ans peut fonctionner parfaitement avec Linux</li>
+                        <li><strong>💰 Économiser</strong> : Pas de licence à acheter, tout est gratuit</li>
+                        <li><strong>🎓 Projet pédagogique</strong> : Le lycée Carnot a sauvé tout son parc informatique !</li>
+                    </ul>
+                    <a href="https://ubuntu.com/download" target="_blank" style="display: inline-block; margin-top: 1rem; color: #FFE66D; font-weight: bold; font-size: 1.1rem;">
+                        📥 Télécharger Ubuntu →
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="margin-bottom: 2rem;">
+                <div class="emoji" style="font-size: 4rem; text-align: center;">💸</div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Problème : Licences coûteuses</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                    Les budgets des établissements explosent avec les abonnements Microsoft 365, Adobe, etc.
+                </p>
+                <div style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">✅ Solution NIRD : Logiciels Libres</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px;">
+                            <strong>📝 Suite bureautique</strong><br>
+                            LibreOffice remplace Microsoft Office<br>
+                            <span style="color: #667eea;">100% compatible</span>
+                        </div>
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px;">
+                            <strong>🎨 Création graphique</strong><br>
+                            GIMP, Inkscape, Krita<br>
+                            <span style="color: #667eea;">Alternatives pro à Adobe</span>
+                        </div>
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px;">
+                            <strong>🎬 Montage vidéo</strong><br>
+                            Kdenlive, OpenShot<br>
+                            <span style="color: #667eea;">Gratuit et puissant</span>
+                        </div>
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px;">
+                            <strong>💻 Programmation</strong><br>
+                            VSCode, PyCharm Community<br>
+                            <span style="color: #667eea;">Outils professionnels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="margin-bottom: 2rem;">
+                <div class="emoji" style="font-size: 4rem; text-align: center;">🔒</div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Problème : Données hors UE</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                    Les données scolaires sont souvent hébergées aux États-Unis, posant des questions de souveraineté...
+                </p>
+                <div style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">✅ Solution NIRD : Hébergement local</h4>
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li><strong>🏫 Serveur dans l'établissement</strong> : Nextcloud pour le stockage et la collaboration</li>
+                        <li><strong>🇫🇷 Clouds souverains</strong> : Apps.education.fr hébergé en France</li>
+                        <li><strong>📧 Messagerie locale</strong> : Serveurs mail auto-hébergés</li>
+                        <li><strong>🛡️ Contrôle total</strong> : Vous gardez la main sur vos données</li>
+                    </ul>
+                    <a href="https://nextcloud.com/" target="_blank" style="display: inline-block; margin-top: 1rem; color: #FFE66D; font-weight: bold; font-size: 1.1rem;">
+                        🌐 Découvrir Nextcloud →
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="margin-bottom: 2rem;">
+                <div class="emoji" style="font-size: 4rem; text-align: center;">🔓</div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Problème : Écosystèmes fermés</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                    Difficile de changer de solution quand tout est verrouillé dans un seul écosystème...
+                </p>
+                <div style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">✅ Solution NIRD : Standards ouverts</h4>
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li><strong>📄 Formats libres</strong> : ODF (OpenDocument) au lieu de .docx propriétaire</li>
+                        <li><strong>🔄 Interopérabilité</strong> : Les logiciels libres communiquent entre eux</li>
+                        <li><strong>🚪 Pas de prison dorée</strong> : Changez d'outil quand vous voulez</li>
+                        <li><strong>🌍 Communauté mondiale</strong> : Des millions de développeurs contribuent</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="margin-bottom: 2rem;">
+                <div class="emoji" style="font-size: 4rem; text-align: center;">🎯</div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Par où commencer ?</h3>
+                <div style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">🚀 Plan d'action progressif</h4>
+                    <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #FF6B6B;">
+                            <strong>Étape 1 - Sensibilisation (1 mois)</strong><br>
+                            Organiser une réunion d'information, montrer des vidéos du lycée Carnot, tester Linux en live USB
+                        </div>
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #FFE66D;">
+                            <strong>Étape 2 - Expérimentation (3 mois)</strong><br>
+                            Installer Linux sur quelques postes pilotes, former une équipe volontaire, documenter l'expérience
+                        </div>
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #38ef7d;">
+                            <strong>Étape 3 - Déploiement (6-12 mois)</strong><br>
+                            Migration progressive, formation des utilisateurs, mise en place du support technique
+                        </div>
+                        <div style="background: white; color: #333; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #667eea;">
+                            <strong>Étape 4 - Autonomie (continu)</strong><br>
+                            Partager votre expérience, contribuer à la communauté NIRD, inspirer d'autres établissements
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="cta-button" onclick="scrollToAction()">
+                    💪 Je veux agir maintenant !
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Section Problématique -->
-    <section class="section problem-section">
+    <!-- Action Section -->
+    <section id="action-section" class="action-section">
         <div class="container">
-            <h2>⚔️ Le Goliath Numérique</h2>
-            <div class="cards-grid">
-                <div class="card card-danger">
-                    <div class="card-icon">💀</div>
-                    <h3>Obsolescence programmée</h3>
-                    <p>Windows 10 en fin de vie = des millions d'ordinateurs jetés</p>
+            <h2 class="section-title">💪 Passe à l'action !</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Choisis ton rôle dans la résistance numérique</p>
+            <div class="action-grid">
+                <div class="action-card" onclick="showRole('student')">
+                    <div class="emoji">🎓</div>
+                    <h3>Élève</h3>
+                    <p>Deviens ambassadeur NIRD dans ton établissement</p>
                 </div>
-                <div class="card card-danger">
-                    <div class="card-icon">💰</div>
-                    <h3>Licences coûteuses</h3>
-                    <p>Abonnements indispensables qui pèsent sur les budgets</p>
+                <div class="action-card" onclick="showRole('teacher')">
+                    <div class="emoji">👨‍🏫</div>
+                    <h3>Enseignant</h3>
+                    <p>Intègre NIRD dans tes pratiques pédagogiques</p>
                 </div>
-                <div class="card card-danger">
-                    <div class="card-icon">🔒</div>
-                    <h3>Écosystèmes fermés</h3>
-                    <p>Dépendance totale aux solutions propriétaires</p>
+                <div class="action-card" onclick="showRole('parent')">
+                    <div class="emoji">👨‍👩‍👧</div>
+                    <h3>Parent</h3>
+                    <p>Soutiens la transition numérique responsable</p>
                 </div>
-                <div class="card card-danger">
-                    <div class="card-icon">🌍</div>
-                    <h3>Données hors UE</h3>
-                    <p>Stockage sans contrôle de nos informations</p>
+                <div class="action-card" onclick="showRole('admin')">
+                    <div class="emoji">🏛️</div>
+                    <h3>Collectivité</h3>
+                    <p>Accompagne les établissements dans leur autonomie</p>
                 </div>
             </div>
+            <div id="role-info" style="margin-top: 3rem;"></div>
         </div>
     </section>
 
-    <!-- Section Solutions -->
-    <section class="section solution-section">
-        <div class="container">
-            <h2>🌿 Les 3 Piliers de la Résistance</h2>
-            <div class="pillars">
-                <div class="pillar">
-                    <div class="pillar-icon">🤝</div>
-                    <h3>Inclusion</h3>
-                    <p>Un numérique accessible à tous</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">♻️</div>
-                    <h3>Responsabilité</h3>
-                    <p>Des choix éthiques et écologiques</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">🌱</div>
-                    <h3>Durabilité</h3>
-                    <p>Du matériel qui dure vraiment</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>🛡️ NIRD - Nuit de l'Info 2025 | Licence Libre</p>
-            <p><a href="https://nird.forge.apps.education.fr/" target="_blank">Site officiel NIRD</a></p>
-        </div>
-    </footer>
-
-    <script src="nav/navbar-loader.js"></script>
+    <script src="/nav/navbar-loader.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
