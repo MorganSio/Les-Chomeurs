@@ -31,11 +31,7 @@ let particles = [];
 
 // --- KONAMI CODE ---
 const konamiCode = [
-    "ArrowUp", "ArrowUp", 
-    "ArrowDown", "ArrowDown", 
-    "ArrowLeft", "ArrowRight", 
-    "ArrowLeft", "ArrowRight", 
-    "b", "a"
+    "n", "i", "r", "d"
 ];
 let keyHistory = [];
 
