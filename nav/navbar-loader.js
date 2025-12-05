@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isGithubPages) {
         pathPrefix = './'; 
         
-        if (window.location.pathname.split('/').length > 3) { // > 3 car ['', 'NomProjet', 'subfolder', 'index.html']
+        if (window.location.pathname.split('/').length > 3) {
              pathPrefix = '../';
         }
     } else {
