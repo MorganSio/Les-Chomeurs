@@ -1,127 +1,139 @@
- <style>
-/* --- VARIABLES LOCALES (Scoped) --- */
-#nird-navbar {
-    --nav-bg: rgba(15, 23, 42, 0.95);
-    --nav-text: #f8fafc;
-    --nav-accent: #38bdf8;
-    --nav-height: 70px;
-}
+<style>
+    /* --- VARIABLES LOCALES (Scoped) --- */
+    #nird-navbar {
+        --nav-bg: rgba(15, 23, 42, 0.95);
+        --nav-text: #f8fafc;
+        --nav-accent: #38bdf8;
+        --nav-height: 70px;
+    }
 
-/* --- RESET LOCAL --- */
-/* On s'assure que la box-sizing est bonne juste pour la nav */
-#nird-navbar, #nird-navbar * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; /* Force la police ici */
-}
+    /* --- RESET LOCAL --- */
+    /* On s'assure que la box-sizing est bonne juste pour la nav */
+    #nird-navbar,
+    #nird-navbar * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+        /* Force la police ici */
+    }
 
-/* --- MAIN STYLE --- */
-/* L'utilisation de l'ID #nird-navbar augmente le "poids" du sélecteur */
-#nird-navbar.navbar {
-    background-color: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    height: var(--nav-height);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999; /* Très haut pour rester au dessus */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    line-height: 1.5; /* Reset line-height */
-}
+    /* --- MAIN STYLE --- */
+    /* L'utilisation de l'ID #nird-navbar augmente le "poids" du sélecteur */
+    #nird-navbar.navbar {
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        height: var(--nav-height);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        /* Très haut pour rester au dessus */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        line-height: 1.5;
+        /* Reset line-height */
+    }
 
-/* Renommé pour éviter conflit avec Bootstrap ou autre */
-#nird-navbar .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 100%;
-    width: 100%;
-}
+    /* Renommé pour éviter conflit avec Bootstrap ou autre */
+    #nird-navbar .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        height: 100%;
+        width: 100%;
+    }
 
-#nird-navbar .navbar-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
+    #nird-navbar .navbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
 
-/* --- BRAND --- */
-#nird-navbar .navbar-brand {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--nav-text);
-    text-decoration: none; /* Sécurité contre les styles de liens globaux */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-#nird-navbar .navbar-brand:hover { transform: scale(1.05); }
-#nird-navbar .logo { margin-right: 10px; font-size: 1.8rem; }
+    /* --- BRAND --- */
+    #nird-navbar .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--nav-text);
+        text-decoration: none;
+        /* Sécurité contre les styles de liens globaux */
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
 
-/* --- MENUS & LIENS --- */
-#nird-navbar .navbar-menu {
-    display: flex;
-    list-style: none !important; /* Force la suppression des puces */
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
+    #nird-navbar .navbar-brand:hover {
+        transform: scale(1.05);
+    }
 
-#nird-navbar .nav-link {
-    text-decoration: none !important; /* Force la suppression du soulignement par défaut */
-    color: #94a3b8;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    display: block;
-    background: transparent; /* Évite les héritages de fonds de boutons */
-}
+    #nird-navbar .logo {
+        margin-right: 10px;
+        font-size: 1.8rem;
+    }
 
-#nird-navbar .nav-link:hover,
-#nird-navbar .nav-link.active {
-    color: var(--nav-text);
-}
+    /* --- MENUS & LIENS --- */
+    #nird-navbar .navbar-menu {
+        display: flex;
+        list-style: none !important;
+        /* Force la suppression des puces */
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+    }
 
-/* Soulignement animé */
-#nird-navbar .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--nav-accent);
-    transition: width 0.3s ease;
-}
+    #nird-navbar .nav-link {
+        text-decoration: none !important;
+        /* Force la suppression du soulignement par défaut */
+        color: #94a3b8;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        display: block;
+        background: transparent;
+        /* Évite les héritages de fonds de boutons */
+    }
 
-#nird-navbar .nav-link:hover::after,
-#nird-navbar .nav-link.active::after {
-    width: 100%;
-}
+    #nird-navbar .nav-link:hover,
+    #nird-navbar .nav-link.active {
+        color: var(--nav-text);
+    }
 
+    /* Soulignement animé */
+    #nird-navbar .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--nav-accent);
+        transition: width 0.3s ease;
+    }
 
+    #nird-navbar .nav-link:hover::after,
+    #nird-navbar .nav-link.active::after {
+        width: 100%;
+    }
 </style>
 
 <!-- navbar.html -->
 <nav class="navbar" id="nird-navbar">
     <div class="navbar-container navbar-content">
         <div class="navbar-brand">
-            <span class="logo">🛡️</span>
-            <span class="brand-name">NIRD</span>
+            <span class="logo">🛡️
+            </span>
+            <span class="brand-name">Les chômeurs </span>
         </div>
-        <ul class="navbar-menu" id="navbarMenu"> 
-            <li><a href="/index.html" class="nav-link active">Accueil</a></li>
-            <li><a href="/decouvrir.html" class="nav-link">Découvrir NIRD</a></li>
-            <li><a href="/solutions.html" class="nav-link">Solutions</a></li>
-            <li><a href="/communaute.html" class="nav-link">Communauté</a></li>
-            <li><a href="/agir.html" class="nav-link">Agir</a></li>
-            <li><a href="/snake/index.html" class="nav-link">Snake</a></li>
-            <li><a href="/CCI/index.html" class="nav-link">Défi CCI</a></li>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="/" class="nav-link active">Accueil</a></li>
+            <li><a href="../snake/index.html" class="nav-link">Snake</a></li>
+            <li><a href="../CCI/index.html" class="nav-link">Défi CCI</a></li>
+            <li><a href="../ChatBot/index.html" class="nav-link">Défi Chat'bruti</a></li>
+            <li><a href="../ergonomie/index.html" class="nav-link">Défi Ergonomie</a></li>
         </ul>
     </div>
 </nav>
