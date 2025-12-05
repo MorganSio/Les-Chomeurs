@@ -101,6 +101,9 @@ Les-chomeurs/
 ├── ergonomie/              # Défi Ergonomie
 │   └── ...
 │
+├── Formulaire/             # Défi Le Formulaire de la Gloire
+│   └── ...
+│
 └── README.md               # Documentation
 ```
 
@@ -142,43 +145,6 @@ const quizData = [
 
 Site accessible à : `https://github.com/MorganSio/Les-Chomeurs`
 
-## 📱 Responsive Design
-
-Le site est **100% responsive** et fonctionne sur :
-- 📱 **Mobile** (iOS/Android)
-- 📟 **Tablettes** (iPad, etc.)
-- 💻 **Desktop** (tous navigateurs modernes)
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. **Fork** le projet
-2. Créez une branche (`git checkout -b feature/amelioration`)
-3. Committez vos changements (`git commit -m 'Ajout de...'`)
-4. Pushez vers la branche (`git push origin feature/amelioration`)
-5. Ouvrez une **Pull Request**
-
-## 🐛 Bugs connus & Roadmap
-
-### À corriger
-- [ ] Navigation entre pages des défis
-- [ ] Persistance des scores avec localStorage
-
-### Améliorations futures
-- [ ] Mode sombre/clair
-- [ ] Multilingue (FR/EN)
-- [ ] Leaderboard communautaire
-- [ ] Export PDF des résultats
-- [ ] Intégration API NIRD
-
-## 📚 Ressources NIRD
-
-- 🌐 [Site officiel NIRD](https://nird.forge.apps.education.fr/)
-- 🎥 [Lycée Carnot - Linux c'est facile](https://tube-numerique-educatif.apps.education.fr/w/3LXem3XK4asbwZa5R1qGkW)
-- 🎙️ [Reportage France Inter](https://www.radiofrance.fr/franceinter/podcasts/le-grand-reportage-de-france-inter/le-grand-reportage-du-mardi-14-octobre-2025-4136495)
-- 📰 [Article Café Pédagogique](https://www.cafepedagogique.net/2025/04/27/bruay-labuissiere-voyage-au-centre-du-libre-educatif/)
-
 ## 👥 Équipe - Les Chômeurs
 
 Projet réalisé lors de la **Nuit de l'Info 2025** par l'équipe **"Les Chômeurs"**.
@@ -186,7 +152,6 @@ Projet réalisé lors de la **Nuit de l'Info 2025** par l'équipe **"Les Chômeu
 ## 🙏 Remerciements
 
 - 🎓 **Collectif NIRD** pour l'inspiration et les ressources
-- 🏫 **Lycée Carnot de Bruay-la-Buissière** pour leur projet pionnier
 - 🌙 **Nuit de l'Info** pour l'organisation de l'événement
 - 💻 Tous les contributeurs de logiciels libres
 
